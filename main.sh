@@ -94,6 +94,15 @@ show_system_info() {
     echo "内核版本: $(uname -r)"
     echo "当前用户: $(whoami)"
     echo "Debian版本: $(get_debian_version)"
+    
+    # 检查当前用户是否在sudo组
+    local current_user=$(whoami)
+    if user_in_sudo "$current_user"; then
+        echo "Sudo权限: ✓ 已配置"
+    else
+        echo "Sudo权限: ✗ 未配置（需要运行初始化）"
+    fi
+    
     echo "=========================================="
     echo ""
 }
@@ -184,7 +193,12 @@ show_script_detail() {
         echo "依赖: ${requires}"
     fi
     if [ -n "$risk" ] && [ "$risk" != "unknown" ]; then
-        echo "风险等级: ${risk}"
+        case "$risk" in
+            low) echo "风险等级: ${GREEN}低风险${NC}" ;;
+            medium) echo "风险等级: ${YELLOW}中风险${NC}" ;;
+            high) echo "风险等级: ${RED}高风险${NC}" ;;
+            *) echo "风险等级: ${risk}风险" ;;
+        esac
     fi
     if [ "$reboot" = "true" ]; then
         echo "⚠️  需要重启"

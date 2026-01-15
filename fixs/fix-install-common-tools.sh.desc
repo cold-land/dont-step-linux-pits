@@ -15,6 +15,6 @@ description: |
   - 很多脚本和操作需要这些工具才能正常运行
   
   注意事项：
-  - 从 config/packages.txt 读取包列表
+  - 从 config/packages.list 读取包列表
   - 自动跳过已安装的包
   - 需要sudo权限
