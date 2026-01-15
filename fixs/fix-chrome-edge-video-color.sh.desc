@@ -2,7 +2,6 @@ title: Chrome/Edge 视频解码偏色问题提示
 author: Shaowei Yang
 version: 1.0
 date: 2026-01-15
-requires: nvidia-smi (可选)
 risk: low
 reboot: false
 tags: chrome,edge,nvidia,video,color
