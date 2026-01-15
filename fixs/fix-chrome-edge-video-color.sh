@@ -9,7 +9,7 @@ source "${SCRIPT_DIR}/../common/utils.sh"
 init_dirs
 
 log_info "=========================================="
-log_info "Chrome/Edge 视频解码偏色问题提示"
+log_info "Chrome/Edge 视频解码偏色问题解决方案"
 log_info "=========================================="
 
 # 检测显卡
@@ -42,17 +42,6 @@ fi
 
 log_info ""
 log_info "=========================================="
-log_info "问题描述"
-log_info "=========================================="
-log_info ""
-log_info "在 NVIDIA 显卡上使用 Chrome/Edge 浏览器播放视频时，"
-log_info "可能会出现 H.264 硬件解码导致的色彩偏色问题。"
-log_info ""
-log_info "这是 NVIDIA VA-API 驱动的已知问题，"
-log_info "特别是在 Wayland 环境下。"
-log_info ""
-
-log_info "=========================================="
 log_info "解决方法"
 log_info "=========================================="
 log_info ""
@@ -76,28 +65,6 @@ if [[ $HAS_EDGE -eq 1 ]]; then
     log_info "5. 点击底部的 Relaunch 重启浏览器"
     log_info ""
 fi
-
-log_info "=========================================="
-log_info "说明"
-log_info "=========================================="
-log_info ""
-log_info "禁用硬件加速视频解码后："
-log_info "- 视频将使用 CPU 软件解码"
-log_info "- CPU 占用会稍高，但不会出现偏色问题"
-log_info "- 不会影响 WebGL、Canvas 等其他 GPU 加速功能"
-log_info ""
-log_info "你的 RTX 3060 Ti 配套的 CPU 足够处理 H.264 软解码"
-log_info ""
-
-log_info "=========================================="
-log_info "验证方法"
-log_info "=========================================="
-log_info ""
-log_info "1. 打开 YouTube 播放视频"
-log_info "2. 右键点击视频 -> 检查 -> 更多工具 -> 媒体"
-log_info "3. 查看 Video Decoder，应该显示为软件解码"
-log_info "4. 检查视频颜色是否正常"
-log_info ""
 
 log_info "=========================================="
 log_info "提示完成"
