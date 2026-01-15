@@ -194,9 +194,9 @@ show_script_detail() {
     fi
     if [ -n "$risk" ] && [ "$risk" != "unknown" ]; then
         case "$risk" in
-            low) echo "风险等级: ${GREEN}低风险${NC}" ;;
-            medium) echo "风险等级: ${YELLOW}中风险${NC}" ;;
-            high) echo "风险等级: ${RED}高风险${NC}" ;;
+            low) echo -e "风险等级: ${GREEN}低风险${NC}" ;;
+            medium) echo -e "风险等级: ${YELLOW}中风险${NC}" ;;
+            high) echo -e "风险等级: ${RED}高风险${NC}" ;;
             *) echo "风险等级: ${risk}风险" ;;
         esac
     fi
