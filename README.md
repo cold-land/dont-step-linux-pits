@@ -39,7 +39,7 @@ bash main.sh
 dont-step-linux-pits/
 ├── main.sh              # 主导航菜单
 ├── init/                # 初始化脚本
-├── fixs/                # 修复脚本
+├── tweaks/              # 调整/修复脚本
 ├── common/              # 通用工具函数
 ├── config/              # 配置文件
 ├── logs/                # 脚本执行日志
@@ -52,15 +52,15 @@ dont-step-linux-pits/
 
 - **first-setup.sh**: 修复PATH环境变量、sudo组配置和国内软件源
 
-### 修复脚本
+### 调整脚本
 
 - **fix-chrome-edge-video-color.sh**: 解决Chrome/Edge在NVIDIA显卡上硬件解码偏色问题
 - **fix-fcitx5-default.sh**: 配置fcitx5为默认输入法
-- **fix-flatpak.sh**: 安装Flatpak及国内源
-- **fix-install-common-tools.sh**: 安装常用工具（curl、wget、vim等）
-- **fix-nvidia-driver.sh**: 安装NVIDIA官方驱动并启用Wayland
-- **fix-python-pip.sh**: 配置Python环境和pip国内源
 - **fix-user-dirs-english.sh**: 将用户目录中的中文名称改为英文
+- **setup-common-tools.sh**: 安装常用工具（curl、wget、vim等）
+- **setup-flatpak.sh**: 安装Flatpak及常用应用
+- **setup-nvidia-driver.sh**: 安装NVIDIA官方驱动并启用Wayland
+- **setup-python-pip.sh**: 配置Python环境和pip国内源
 
 ---
 
@@ -98,13 +98,15 @@ dont-step-linux-pits/
 
 如果你愿意编写脚本来修复问题，请按照以下步骤：
 
-#### 1. 创建修复脚本
+#### 1. 创建调整脚本
 
-在 `fixs/` 目录下创建新的脚本文件，命名格式为 `fix-xxx.sh`。
+在 `tweaks/` 目录下创建新的脚本文件，根据功能选择命名格式：
+- 修复类脚本：`fix-xxx.sh`
+- 安装配置类脚本：`setup-xxx.sh`
 
 #### 2. 创建描述文件
 
-每个脚本都必须有一个对应的 `.desc` 描述文件（命名格式：`fix-xxx.sh.desc`）：
+每个脚本都必须有一个对应的 `.desc` 描述文件（命名格式：`fix-xxx.sh.desc` 或 `setup-xxx.sh.desc`）：
 
 ```
 title: 脚本标题

@@ -22,7 +22,7 @@ PAGE_SIZE=10
 # 获取所有可用的脚本（包含 desc 文件）
 get_available_scripts() {
     local scripts=()
-    for script in "${SCRIPT_DIR}/fixs"/*.sh; do
+    for script in "${SCRIPT_DIR}/tweaks"/*.sh; do
         if [ -f "$script" ]; then
             local desc_file="${script}.desc"
             if [ -f "$desc_file" ]; then
