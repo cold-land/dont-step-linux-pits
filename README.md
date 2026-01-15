@@ -54,9 +54,13 @@ dont-step-linux-pits/
 
 ### 修复脚本
 
+- **fix-chrome-edge-video-color.sh**: 解决Chrome/Edge在NVIDIA显卡上硬件解码偏色问题
 - **fix-fcitx5-default.sh**: 配置fcitx5为默认输入法
-- **fix-user-dirs-english.sh**: 将用户目录中的中文名称改为英文
+- **fix-flatpak.sh**: 安装Flatpak及国内源
 - **fix-install-common-tools.sh**: 安装常用工具（curl、wget、vim等）
+- **fix-nvidia-driver.sh**: 安装NVIDIA官方驱动并启用Wayland
+- **fix-python-pip.sh**: 配置Python环境和pip国内源
+- **fix-user-dirs-english.sh**: 将用户目录中的中文名称改为英文
 
 ---
 
