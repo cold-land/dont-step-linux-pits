@@ -1,26 +1,27 @@
-title: Chrome/Edge 视频解码偏色问题提示
+title: Chrome/Edge Wayland 视频播放问题修复
 author: Shaowei Yang
-version: 1.0
+version: 2.0
 date: 2026-01-15
 risk: low
 reboot: false
-tags: chrome,edge,nvidia,video,color
+tags: chrome,edge,wayland,video,nvidia
 
 description: |
-  提示用户如何解决 Chrome/Edge 在 NVIDIA 显卡上硬件解码偏色的问题
+  修复 Chrome/Edge 在 Wayland 下的视频播放问题
   
   解决的问题：
-  - NVIDIA 显卡上 Chrome/Edge 播放 H.264 视频时出现色彩偏色
-  - VA-API 硬件解码在 Wayland 环境下存在色彩空间转换 bug
+  - Wayland 下播放视频时出现错误（错误代码 5）
+  - NVIDIA 显卡上 Chrome/Edge 播放视频时出现色彩偏色
+  - GPU 内存缓冲视频帧在 Wayland 环境下存在兼容性问题
   
   脚本功能：
-  - 检测 NVIDIA 显卡
-  - 检测 Chrome/Edge 浏览器
-  - 提示用户通过 flags 禁用硬件加速视频解码
-  - 提供详细的操作步骤和说明
+  - 检测 Chrome/Edge 浏览器（支持 APT 和 Flatpak 安装）
+  - 自动添加启动参数：--disable-gpu-memory-buffer-video-frames
+  - 提示用户禁用硬件加速视频解码（解决偏色问题）
+  - 自动备份原始 desktop 文件
   
   注意事项：
-  - 此脚本不做任何系统修改，只是提示
-  - 需要用户手动在浏览器中操作
-  - 禁用硬件加速视频解码后，CPU 占用会稍高
-  - 不会影响 WebGL、Canvas 等其他 GPU 加速功能
+  - 此参数只禁用 GPU 内存缓冲的视频帧，不会完全禁用 GPU 加速
+  - 如果视频仍然偏色，需要手动禁用硬件加速视频解码
+  - 支持 APT 和 Flatpak 安装的浏览器
+  - 修改需要 sudo 权限
