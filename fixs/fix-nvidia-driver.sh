@@ -235,5 +235,10 @@ else
     echo ""
     echo "系统将在5秒后重启..."
     sleep 5
-    reboot
+    sudo reboot
+    if [ $? -ne 0 ]; then
+        echo ""
+        echo "⚠️  自动重启失败，请手动重启系统"
+        echo "运行命令: sudo reboot"
+    fi
 fi

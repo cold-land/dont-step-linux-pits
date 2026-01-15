@@ -1,0 +1,41 @@
+# 常用命令行工具列表
+# 每行一个包名，# 开头的行为注释
+
+# 网络工具
+curl
+wget
+
+# 压缩解压工具
+zip
+unzip
+tar
+gzip
+
+# 文件管理工具
+tree
+ncdu
+
+# 文本编辑工具
+vim
+nano
+
+# 系统监控工具
+htop
+iotop
+iftop
+
+# 网络诊断工具
+net-tools
+iputils-ping
+traceroute
+
+# 开发工具
+git
+build-essential
+
+# 其他实用工具
+jq
+fzf
+ripgrep
+tmux
+screen

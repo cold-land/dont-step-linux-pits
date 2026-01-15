@@ -16,8 +16,8 @@ log_info "=========================================="
 CURRENT_USER=$(whoami)
 log_info "当前用户: $CURRENT_USER"
 
-# 检查packages.txt文件是否存在
-PACKAGES_FILE="${CONFIG_DIR}/packages.txt"
+# 检查packages.list文件是否存在
+PACKAGES_FILE="${CONFIG_DIR}/packages.list"
 if [ ! -f "$PACKAGES_FILE" ]; then
     log_error "未找到包列表文件: $PACKAGES_FILE"
     exit 1
