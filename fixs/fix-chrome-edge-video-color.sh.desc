@@ -1,25 +1,28 @@
-{
-  "id": "fix-chrome-edge-video-color",
-  "name": "Chrome/Edge 视频解码偏色问题提示",
-  "description": "提示用户如何解决 Chrome/Edge 在 NVIDIA 显卡上硬件解码偏色的问题",
-  "risk": "low",
-  "dependencies": [
-    "nvidia-smi (可选，用于检测显卡)"
-  ],
-  "details": [
-    "检测 NVIDIA 显卡",
-    "检测 Chrome/Edge 浏览器",
-    "提示用户通过 flags 禁用硬件加速视频解码",
-    "提供详细的操作步骤和说明"
-  ],
-  "affected_files": [],
-  "backup": false,
-  "reversible": false,
-  "notes": [
-    "此脚本不做任何系统修改，只是提示",
-    "需要用户手动在浏览器中操作",
-    "禁用硬件加速视频解码后，CPU 占用会稍高",
-    "不会影响 WebGL、Canvas 等其他 GPU 加速功能"
-  ],
-  "tested": false
-}
+title: Chrome/Edge 视频解码偏色问题提示
+author: Shaowei Yang
+version: 1.0
+date: 2026-01-15
+requires: nvidia-smi (可选)
+risk: low
+reboot: false
+tags: chrome,edge,nvidia,video,color
+
+description: |
+  提示用户如何解决 Chrome/Edge 在 NVIDIA 显卡上硬件解码偏色的问题
+  
+  解决的问题：
+  - NVIDIA 显卡上 Chrome/Edge 播放 H.264 视频时出现色彩偏色
+  - VA-API 硬件解码在 Wayland 环境下存在色彩空间转换 bug
+  
+  脚本功能：
+  - 检测 NVIDIA 显卡
+  - 检测 Chrome/Edge 浏览器
+  - 提示用户通过 flags 禁用硬件加速视频解码
+  - 提供详细的操作步骤和说明
+  
+  注意事项：
+  - 此脚本不做任何系统修改，只是提示
+  - 需要用户手动在浏览器中操作
+  - 禁用硬件加速视频解码后，CPU 占用会稍高
+  - 不会影响 WebGL、Canvas 等其他 GPU 加速功能
+  - RTX 3060 Ti 等现代显卡配套的 CPU 足够处理 H.264 软解码
