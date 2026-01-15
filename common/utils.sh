@@ -5,11 +5,11 @@
 # 获取脚本根目录
 SCRIPT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
-# 日志目录（使用用户主目录，避免权限问题）
-LOG_DIR="$HOME/dont-step-linux-pits/logs"
+# 日志目录（在项目目录下）
+LOG_DIR="${SCRIPT_ROOT}/logs"
 
-# 备份目录（使用用户主目录，避免权限问题）
-BACKUP_DIR="$HOME/dont-step-linux-pits/backup"
+# 备份目录（在项目目录下）
+BACKUP_DIR="${SCRIPT_ROOT}/backup"
 
 # 配置目录
 CONFIG_DIR="${SCRIPT_ROOT}/config"
