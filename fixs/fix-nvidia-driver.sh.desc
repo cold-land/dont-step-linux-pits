@@ -1,0 +1,33 @@
+title: 安装NVIDIA官方驱动并启用Wayland
+author: Shaowei Yang
+version: 1.0
+date: 2026-01-15
+requires: nvidia-gpu,linux-headers-$(uname -r)
+risk: high
+reboot: true
+tags: nvidia,driver,wayland,graphics
+
+description: |
+  安装NVIDIA官方驱动并启用Wayland支持，解决开源驱动HDMI无音频输出问题
+  
+  脚本执行的步骤：
+  1. 检测是否为NVIDIA显卡
+  2. 安装依赖包（linux-headers、build-essential、dkms、libglvnd-dev、pkg-config）
+  3. 安装NVIDIA驱动（nvidia-kernel-dkms、nvidia-driver、firmware-misc-nonfree）
+  4. 启用Kernel Modesetting（修改GRUB配置，添加nvidia-drm.modeset=1参数）
+  5. 安装nvidia-suspend-common并启用相关服务
+  6. 配置PreserveVideoMemoryAllocations（创建/etc/modprobe.d/nvidia-power-management.conf）
+  
+  解决的问题：
+  - 开源驱动（nouveau）HDMI无音频输出
+  - 无法使用Wayland会话
+  - NVIDIA显卡性能未充分利用
+  - 休眠/唤醒问题
+  
+  注意事项：
+  - ⚠️ 高风险操作，可能导致系统无法启动（黑屏）
+  - ⚠️ 建议先备份重要数据
+  - ⚠️ 仅适用于NVIDIA显卡
+  - ⚠️ 需要重启系统才能生效
+  - ⚠️ 重启后需要在登录界面选择Wayland会话
+  - 如果系统无法启动，请在GRUB菜单中选择之前的内核

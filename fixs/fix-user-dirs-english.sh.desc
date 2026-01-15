@@ -1,0 +1,22 @@
+title: 将用户目录改为英文名称
+author: Shaowei Yang
+version: 1.0
+date: 2026-01-14
+requires: xdg-user-dirs
+risk: low
+reboot: true
+tags: user-dirs,localization
+
+description: |
+  将用户目录中的中文名称改为英文
+  
+  解决的问题：
+  - 中文目录名在命令行中输入不便
+  - 某些程序对中文路径支持不佳
+  - 文件浏览器书签失效
+  
+  注意事项：
+  - 会自动移动文件，不会删除任何内容
+  - 如果英文目录已存在且有文件，会提示处理方式
+  - 操作完成后需要重启系统
+  - 重启后如果弹出对话框，请选择"保留旧的名称"并勾选"不再询问"

@@ -1,0 +1,22 @@
+title: 首次初始化配置
+author: Shaowei Yang
+version: 1.0
+date: 2026-01-14
+requires: root
+risk: medium
+reboot: true
+tags: initialization,system,first-setup
+
+description: |
+  修复PATH环境变量、sudo组配置和国内软件源
+  
+  解决的问题：
+  - PATH环境变量缺少/usr/sbin路径
+  - 普通用户默认不在sudo组中
+  - 默认软件源速度慢
+  - 缺少基础的系统工具
+  
+  注意事项：
+  - 需要root权限运行
+  - 配置完成后建议重启系统
+  - 首次运行 main.sh 时会自动检测并引导执行

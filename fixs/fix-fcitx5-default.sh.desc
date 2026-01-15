@@ -1,0 +1,21 @@
+title: 配置fcitx5为默认输入法
+author: Shaowei Yang
+version: 1.0
+date: 2026-01-14
+requires: fcitx5,im-config,gnome-shell-extension-manager
+risk: low
+reboot: false
+tags: input-method,gnome,fcitx5
+
+description: |
+  配置fcitx5为默认输入法并安装必要的GNOME扩展
+  
+  解决的问题：
+  - fcitx5输入法未设置为默认
+  - GNOME下fcitx5无法正常显示输入法面板
+  - fcitx5无法自动启动
+  
+  注意事项：
+  - 需要手动安装GNOME扩展（Kimpanel和AppIndicator）
+  - 安装扩展后需要注销或重启系统
+  - 详细安装步骤会在脚本执行完成后显示

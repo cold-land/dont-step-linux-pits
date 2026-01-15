@@ -1,0 +1,22 @@
+title: 配置Python环境和pip
+author: Shaowei Yang
+version: 1.0
+date: 2026-01-15
+requires: python3
+risk: low
+reboot: false
+tags: python,pip,development
+
+description: |
+  配置Python环境和pip，包括安装python-is-python3、python3-pip，配置国内源并更新pip
+  
+  解决的问题：
+  - python 命令不存在（只有 python3）
+  - pip 命令不存在
+  - pip 默认源速度慢
+  - pip 版本过旧
+  
+  注意事项：
+  - 需要 python3 已安装
+  - 安装 python3-pip 会自动安装一些开发依赖
+  - 配置国内源后，pip 安装包的速度会显著提升

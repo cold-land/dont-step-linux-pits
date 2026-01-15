@@ -1,0 +1,20 @@
+title: 安装常用工具
+author: Shaowei Yang
+version: 1.0
+date: 2026-01-14
+requires: apt
+risk: low
+reboot: false
+tags: tools,system
+
+description: |
+  安装常用的命令行工具
+  
+  解决的问题：
+  - 系统缺少常用的命令行工具（如curl、wget、vim等）
+  - 很多脚本和操作需要这些工具才能正常运行
+  
+  注意事项：
+  - 从 config/packages.txt 读取包列表
+  - 自动跳过已安装的包
+  - 需要sudo权限
