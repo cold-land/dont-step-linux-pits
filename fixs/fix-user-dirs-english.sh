@@ -23,6 +23,37 @@ if ! command_exists xdg-user-dirs-update; then
     exit 1
 fi
 
+# 检查当前项目目录是否在即将被改名的目录下
+CURRENT_DIR="$(pwd)"
+CURRENT_DIR_NAME=$(basename "$CURRENT_DIR")
+PARENT_DIR=$(dirname "$CURRENT_DIR")
+PARENT_DIR_NAME=$(basename "$PARENT_DIR")
+
+# 检查父目录是否是中文目录名
+if [[ "$PARENT_DIR_NAME" =~ ^(桌面|下载|文档|模板|公共|音乐|图片|视频)$ ]]; then
+    echo ""
+    echo "=========================================="
+    echo "⚠️  警告"
+    echo "=========================================="
+    echo "检测到项目在即将被改名的目录下运行"
+    echo "当前目录: $CURRENT_DIR"
+    echo "父目录: $PARENT_DIR"
+    echo ""
+    echo "执行此脚本后，'$PARENT_DIR_NAME' 将被改为英文目录名"
+    echo "这可能导致日志文件无法正常写入"
+    echo ""
+    echo "建议："
+    echo "1. 将项目移动到其他目录（如 ~/Documents 或 ~/dont-step-linux-pits）"
+    echo "2. 然后在新位置运行此脚本"
+    echo ""
+    read -p "是否继续执行？[y/N]: " continue_choice
+    if [[ ! "$continue_choice" =~ ^[Yy]$ ]]; then
+        log_info "用户取消执行"
+        exit 0
+    fi
+    log_warn "用户选择在中文目录下继续执行，可能会有日志错误"
+fi
+
 # 检查用户目录是否包含中文
 log_info "检查用户目录名称..."
 
