@@ -16,13 +16,18 @@ description: |
   3. 安装NVIDIA驱动（nvidia-kernel-dkms、nvidia-driver、firmware-misc-nonfree）
   4. 启用Kernel Modesetting（修改GRUB配置，添加nvidia-drm.modeset=1参数）
   5. 安装nvidia-suspend-common并启用相关服务
-  6. 配置PreserveVideoMemoryAllocations（创建/etc/modprobe.d/nvidia-power-management.conf）
+  6. 安装多媒体相关包（mesa-utils、nvidia-vaapi-driver、vainfo、libva-dev）
+     - 询问用户是否安装MPV播放器
+     - 如果安装，自动设置为默认播放器
+     - MPV原生支持Wayland，可以解决视频播放问题
+  7. 配置PreserveVideoMemoryAllocations（创建/etc/modprobe.d/nvidia-power-management.conf）
   
   解决的问题：
   - 开源驱动（nouveau）HDMI无音频输出
   - 无法使用Wayland会话
   - NVIDIA显卡性能未充分利用
   - 休眠/唤醒问题
+  - Wayland下视频播放问题（通过安装MPV解决）
   
   注意事项：
   - ⚠️ 高风险操作，可能导致系统无法启动（黑屏）

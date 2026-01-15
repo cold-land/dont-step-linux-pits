@@ -112,7 +112,71 @@ else
     fi
 fi
 
-# 6. 配置PreserveVideoMemoryAllocations
+# 6. 安装多媒体相关包
+log_info "安装多媒体相关包..."
+MULTIMEDIA_PACKAGES=(
+    "mesa-utils"
+    "nvidia-vaapi-driver"
+    "vainfo"
+    "libva-dev"
+)
+
+for package in "${MULTIMEDIA_PACKAGES[@]}"; do
+    if dpkg -l | grep -q "^ii  $package"; then
+        log_info "$package 已安装，跳过"
+    else
+        log_info "安装 $package..."
+        sudo apt install -y "$package"
+        if [ $? -eq 0 ]; then
+            log_info "成功安装 $package"
+        else
+            log_warn "安装 $package 失败"
+        fi
+    fi
+done
+
+# 询问是否安装MPV
+echo ""
+echo "=========================================="
+echo "Wayland下视频播放问题"
+echo "=========================================="
+echo "GNOME Videos在Wayland下可能无法正常播放视频。"
+echo "建议安装MPV播放器，它原生支持Wayland。"
+echo ""
+read -p "是否安装MPV并设置为默认播放器？[Y/n]: " install_mpv
+
+if [[ ! "$install_mpv" =~ ^[Nn]$ ]]; then
+    log_info "安装MPV播放器..."
+    sudo apt install -y mpv
+    if [ $? -eq 0 ]; then
+        log_info "成功安装MPV"
+        
+        # 设置MPV为默认播放器
+        log_info "设置MPV为默认播放器..."
+        xdg-mime default mpv.desktop video/mp4
+        xdg-mime default mpv.desktop video/mpeg
+        xdg-mime default mpv.desktop video/webm
+        xdg-mime default mpv.desktop video/x-matroska
+        xdg-mime default mpv.desktop video/quicktime
+        log_info "已设置MPV为默认播放器"
+        
+        echo ""
+        echo "=========================================="
+        echo "MPV已安装并设置为默认播放器"
+        echo "=========================================="
+        echo "提示："
+        echo "- MPV原生支持Wayland，无需额外配置"
+        echo "- 使用命令: mpv 视频文件.mp4"
+        echo "- 右键视频文件可以选择用其他播放器打开"
+        echo ""
+    else
+        log_warn "安装MPV失败"
+    fi
+else
+    log_info "用户选择不安装MPV"
+fi
+
+# 7. 配置PreserveVideoMemoryAllocations
 log_info "配置PreserveVideoMemoryAllocations..."
 
 # 检查是否已存在配置文件
@@ -128,11 +192,7 @@ fi
 
 # 创建或更新配置文件
 log_info "创建配置文件 /etc/modprobe.d/nvidia-power-management.conf..."
-cat << 'EOF' | sudo tee /etc/modprobe.d/nvidia-power-management.conf > /dev/null
-options nvidia NVreg_PreserveVideoMemoryAllocations=1
-options nvidia NVreg_EnableGpuFirmware=0
-options nvidia NVreg_TceBypassMode=0
-EOF
+echo 'options nvidia NVreg_PreserveVideoMemoryAllocations=1' | sudo tee /etc/modprobe.d/nvidia-power-management.conf > /dev/null
 
 if [ $? -eq 0 ]; then
     log_info "成功创建配置文件"
