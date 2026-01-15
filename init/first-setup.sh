@@ -15,10 +15,6 @@ fi
 # 获取普通用户的home目录
 NORMAL_USER_HOME=$(eval echo ~"$NORMAL_USER")
 
-# 将日志和备份目录设置为普通用户的home目录
-LOG_DIR="${NORMAL_USER_HOME}/dont-step-linux-pits/logs"
-BACKUP_DIR="${NORMAL_USER_HOME}/dont-step-linux-pits/backup"
-
 # 初始化目录
 init_dirs
 
