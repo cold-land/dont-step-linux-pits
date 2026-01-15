@@ -1,0 +1,31 @@
+{
+  "id": "fix-edge-video-decoding",
+  "name": "修复 Edge 浏览器视频解码偏色问题",
+  "description": "配置 Edge 浏览器启用 VA-API 硬件解码，解决 NVIDIA 显卡在 Linux 上的视频偏色问题",
+  "risk": "low",
+  "dependencies": [
+    "microsoft-edge 或 microsoft-edge-stable",
+    "nvidia-smi (NVIDIA 驱动)",
+    "vainfo"
+  ],
+  "details": [
+    "检测 Edge 浏览器和 NVIDIA 显卡",
+    "检查 VA-API 硬件加速状态",
+    "创建 Edge 配置文件启用 VA-API 硬件解码",
+    "创建启用了硬件加速的桌面快捷方式",
+    "提供测试和验证步骤"
+  ],
+  "affected_files": [
+    "~/.config/microsoft-edge-flags.conf",
+    "~/.local/share/applications/microsoft-edge-hwacc.desktop"
+  ],
+  "backup": true,
+  "reversible": true,
+  "notes": [
+    "此脚本主要针对 NVIDIA 显卡和 Wayland 会话",
+    "如果使用 X11，可能需要修改配置文件中的 --ozone-platform 参数",
+    "配置完成后需要完全关闭浏览器并重新打开",
+    "可以通过 edge://gpu 检查硬件加速状态"
+  ],
+  "tested": false
+}
