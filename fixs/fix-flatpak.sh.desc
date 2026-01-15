@@ -1,0 +1,23 @@
+title: 安装 Flatpak
+description: |
+  安装 Flatpak 应用包管理系统和 Flathub 仓库
+  
+  解决的问题：
+  - 系统缺少 Flatpak 支持
+  - 无法安装 Flatpak 格式的应用
+  - 无法访问 Flathub 应用仓库
+  
+  注意事项：
+  - 安装后需要重启系统
+  - Flathub 是 Flatpak 应用的主要来源
+  - 可以在 GNOME Software 中浏览和安装 Flatpak 应用
+
+author: Shaowei Yang
+version: 1.0
+date: 2026-01-15
+
+requires: apt,gnome-software
+risk: low
+reboot: true
+
+tags: flatpak,app-store,gnome
