@@ -2,40 +2,45 @@
 # 每行一个包名，# 开头的行为注释
 
 # 网络工具
-curl
-wget
+curl            # 命令行数据传输工具
+wget            # 命令行下载工具
 
 # 压缩解压工具
-zip
-unzip
-tar
-gzip
+zip             # ZIP 压缩工具
+unzip           # ZIP 解压工具
+tar             # TAR 归档工具
+gzip            # GZIP 压缩工具
 
 # 文件管理工具
-tree
-ncdu
+tree            # 以树形结构显示目录
+ncdu            # 磁盘使用分析工具
 
 # 文本编辑工具
-vim
-nano
+vim             # 高级文本编辑器
+nano            # 简单易用的文本编辑器
 
 # 系统监控工具
-htop
-iotop
-iftop
+htop            # 交互式进程查看器
+iotop           # IO 监控工具
+iftop           # 网络带宽监控工具
+neofetch        # 显示系统信息（发行版、内核、硬件等）
 
 # 网络诊断工具
-net-tools
-iputils-ping
-traceroute
+net-tools       # 网络工具集合（ifconfig、netstat 等）
+iputils-ping    # ICMP 工具（ping 等）
+traceroute      # 路由跟踪工具
+dnsutils        # DNS 诊断工具（nslookup、dig 等）
+
+# 系统信息工具
+lsb-release     # 显示 LSB（Linux Standard Base）和发行版信息
 
 # 开发工具
-git
-build-essential
+git             # 分布式版本控制系统
+build-essential # 编译工具链（gcc、make 等）
 
 # 其他实用工具
-jq
-fzf
-ripgrep
-tmux
-screen
+jq              # JSON 数据处理工具
+fzf             # 命令行模糊查找器
+ripgrep         # 快速文本搜索工具（比 grep 更快）
+tmux            # 终端复用器
+screen          # 终端复用器

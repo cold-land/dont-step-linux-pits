@@ -1,0 +1,25 @@
+title: 中文支持（语言包和字体）
+author: cold-land
+version: 1.0
+date: 2026-01-17
+requires: apt
+risk: low
+reboot: false
+tags: chinese,font,locale
+
+description: |
+  安装中文字体，解决中文显示问题
+  
+  安装内容：
+  - Noto CJK（覆盖中日韩）
+  - 文泉驿正黑
+  - 文泉驿微米黑
+  
+  解决的问题：
+  - 系统中文显示为方块
+  - 缺少中文字体支持
+  - 应用程序中文显示异常
+  
+  注意事项：
+  - Debian 13 中文 locale 已默认包含在 locales-all 包中
+  - 如果系统语言未显示为中文，需要运行 sudo dpkg-reconfigure locales 手动配置
